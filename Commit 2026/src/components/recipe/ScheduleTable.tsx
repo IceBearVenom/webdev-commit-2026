@@ -42,6 +42,7 @@ export default function ScheduleTable({ schedule, frequency, variant = 'planner'
                           : 'text-left group'
                       }
                     >
+                      <img className='aspect-square size-36 object-cover rounded-lg' src={rec.image} alt={rec.name} />
                       <div className="font-bold text-slate-900 group-hover:text-emerald-700 text-xs sm:text-sm">{rec.name}</div>
                       <div className="text-[11px] text-emerald-700 font-semibold mt-0.5">
                         {formatRupiah(cookCost)}
