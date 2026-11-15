@@ -1,3 +1,12 @@
+export type View = 'home' | 'planner' | 'saved-detail';
+export type ToastType = 'success' | 'warning' | 'error' | 'info';
+
+export interface Toast {
+  id: number;
+  message: string;
+  type: ToastType;
+}
+
 export interface Ingredient {
   name: string;
   qty: number;
@@ -15,7 +24,7 @@ export interface PriceEntry {
 export interface EquipmentOption {
   id: string;
   label: string;
-  icon: string; // Font Awesome class, e.g. "fa-bowl-rice"
+  icon: string;
 }
 
 export interface Recipe {
@@ -32,17 +41,17 @@ export interface Recipe {
   instructions: string[];
 }
 
-export interface IngredientWithCost extends Ingredient {
+export interface DetailedIngredient extends Ingredient {
   estimatedCost: number;
 }
 
-export interface RecipeWithMetrics extends Recipe {
-  detailedIngredients: IngredientWithCost[];
+export interface RecipeMetrics extends Recipe {
+  detailedIngredients: DetailedIngredient[];
   cookCost: number;
   savings: number;
 }
 
-export interface ScoredRecipe extends RecipeWithMetrics {
+export interface ScoredRecipe extends RecipeMetrics {
   score: number;
 }
 
@@ -54,52 +63,57 @@ export interface ToBuyItem {
   estimatedShopPrice: number;
 }
 
-export interface UsedIngredient {
+export interface AvailableUsedItem {
   name: string;
   qty: number;
   unit: string;
 }
 
-export interface MealPlanFinancials {
+export interface MealPlanEvaluation {
   totalUsedCost: number;
   totalOutsideCost: number;
   totalSavings: number;
   remainingBudget: number;
   estimatedShoppingOutlay: number;
   toBuyList: ToBuyItem[];
-  availableUsedList: UsedIngredient[];
+  availableUsedList: AvailableUsedItem[];
   isOverBudget: boolean;
 }
-
-/** schedule[dayIndex][slotIndex] */
-export type ScheduleMatrix = Recipe[][];
 
 export interface SavedMealPlan {
   id: string;
   title: string;
   createdAt: string;
   durationDays: number;
-  frequencyPerDay: Frequency;
+  frequencyPerDay: number;
   totalBudget: number;
   totalUsedCost: number;
   totalSavings: number;
-  schedule: ScheduleMatrix;
+  schedule: Recipe[][];
 }
 
-export type Frequency = 1 | 2 | 3;
-export type PlannerStep = 1 | 2 | 3 | 4 | 5 | 6 | 7;
-export type ToastType = 'success' | 'warning' | 'error' | 'info';
-export type SwipeDirection = 'left' | 'right';
-
 export interface PlannerState {
-  step: PlannerStep;
+  step: number;
   equipment: string[];
   userIngredients: Ingredient[];
   durationDays: number;
-  frequencyPerDay: Frequency;
+  frequencyPerDay: number;
   totalBudget: number;
-  candidateRecipes: RecipeWithMetrics[];
+  candidateRecipes: ScoredRecipe[];
   currentSwipeIndex: number;
-  selectedRecipes: RecipeWithMetrics[];
-  generatedSchedule: ScheduleMatrix;
+  selectedRecipes: Recipe[];
+  generatedSchedule: Recipe[][];
+  isGenerating: boolean;
+}
+
+export interface HeroSlide {
+  word: string;
+  kicker: string;
+  titleLines: [string, string];
+  metaBefore: string;
+  metaHighlight: string;
+  metaAfter: string;
+  image: string;
+  recipeId: string;
+  tabLabel: string;
 }
