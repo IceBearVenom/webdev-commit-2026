@@ -9,11 +9,12 @@ Deskripsi singkat mengenai tujuan website ini dibuat dan masalah apa yang disele
 
 **Nama Tim:** Nama Tim Anda
 
-| Nama Anggota | NIM / ID | Peran / Kontribusi |
+| Nama Anggota | NIM / ID |
 | :--- | :--- | :--- |
-| Anggota 1 | 12345678 | Frontend Developer |
-| Anggota 2 | 12345679 | Backend Developer |
-| Anggota 3 | 12345680 | UI/UX Designer |
+| Azki Azziyad | 26/5279227/PA/24271 |
+| Anggota 2 | 12345679 |
+| Anggota 3 | 12345680 |
+| Anggota 3 | 12345680 |
 
 ---
 
@@ -27,10 +28,6 @@ Deskripsi singkat mengenai tujuan website ini dibuat dan masalah apa yang disele
 
 ## Teknologi yang Digunakan
 
-* **Frontend:** HTML, CSS, JavaScript / React / Next.js / Tailwind CSS
-* **Backend:** Node.js / Express / Python / PHP *(sesuaikan atau hapus jika static web)*
-* **Database:** PostgreSQL / MongoDB / MySQL / Firebase *(sesuaikan atau hapus jika tidak ada)*
-* **Deployment:** Vercel / Netlify / GitHub Pages
 
 ---
 
