@@ -170,8 +170,6 @@ export function Hero({ slideIndex, onSelectSlide, onOpenRecipe, onStartPlanner }
         </div>
       </div>
 
-      {/* Bottom accent bar */}
-      <div className="absolute bottom-0 left-0 right-0 h-2 bg-[#243b4a]"></div>
     </div>
   );
 }
