@@ -9,7 +9,7 @@ export const RECIPES_DB: Recipe[] = [
     difficulty: 'Sangat Mudah',
     cookingTime: 10,
     outsidePrice: 15000,
-    image: 'https://images.unsplash.com/photo-1525351484163-7529414342d8?auto=format&fit=crop&w=800&q=80',
+    image: 'https://cdn.yummy.co.id/content-images/images/20230517/QNEL1Fk2Bl7kvDnWHedj4zE4H7j5Y4PS-31363834323933363731d41d8cd98f00b204e9800998ecf8427e.jpg?x-oss-process=image/resize,w_388,h_388,m_fixed,x-oss-process=image/format,webp',
     description: 'Menu penyelamat tanggal tua anak kos Jogja. Telur ceplok siram kecap bawang putih gurih di atas nasi hangat.',
     equipment: ['Kompor', 'Wajan', 'Rice cooker'],
     ingredients: [
@@ -33,7 +33,7 @@ export const RECIPES_DB: Recipe[] = [
     difficulty: 'Mudah',
     cookingTime: 15,
     outsidePrice: 14000,
-    image: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80',
+    image: 'https://asset.kompas.com/crops/Et1U_ACP-Bj9jlriMwlHdQ0neHk=/0x0:1000x667/1200x800/data/photo/2023/01/11/63be005de85bc.jpeg',
     description: 'Tempe potong dadu ditumis dengan bawang merah, cabai rawit, dan kecap manis. Lauk tinggi protein super murah.',
     equipment: ['Kompor', 'Wajan', 'Pisau', 'Talenan'],
     ingredients: [
@@ -59,7 +59,7 @@ export const RECIPES_DB: Recipe[] = [
     difficulty: 'Sangat Mudah',
     cookingTime: 10,
     outsidePrice: 13000,
-    image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80',
+    image: 'https://awsimages.detik.net.id/community/media/visual/2022/12/07/resep-tumis-kangkung-bawang-putih_43.jpeg?w=700&q=90',
     description: 'Sayur hijau segar wajib anak kos biar tetap sehat. Masak cepat kurang dari 10 menit.',
     equipment: ['Kompor', 'Wajan', 'Pisau'],
     ingredients: [
@@ -83,7 +83,7 @@ export const RECIPES_DB: Recipe[] = [
     difficulty: 'Mudah',
     cookingTime: 15,
     outsidePrice: 14000,
-    image: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=800&q=80',
+    image: 'https://wiratech.co.id/wp-content/uploads/2018/09/resep-tahu-crispy.jpg',
     description: 'Tahu putih renyah di luar lembut di dalam, cocok jadi lauk utama maupun camilan nugas.',
     equipment: ['Kompor', 'Wajan', 'Pisau'],
     ingredients: [
@@ -106,7 +106,7 @@ export const RECIPES_DB: Recipe[] = [
     difficulty: 'Sedang',
     cookingTime: 20,
     outsidePrice: 22000,
-    image: 'https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?auto=format&fit=crop&w=800&q=80',
+    image: 'https://image.idntimes.com/post/20240130/img-20240130-104257-b5a1c47ffc5bc4d107ecbdfda1fd4138.jpg?tr=w-1200,f-webp,q-75&width=1200&format=webp&quality=75',
     description: 'Dada ayam filet dimasak dengan saus teriyaki instan. Rasa ala resto Jepang dengan biaya anak kos.',
     equipment: ['Kompor', 'Wajan', 'Pisau', 'Talenan'],
     ingredients: [
@@ -130,7 +130,7 @@ export const RECIPES_DB: Recipe[] = [
     difficulty: 'Mudah',
     cookingTime: 20,
     outsidePrice: 15000,
-    image: 'https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=800&q=80',
+    image: 'https://awsimages.detik.net.id/community/media/visual/2023/12/20/resep-sup-sosis-dan-sayuran_43.jpeg?w=700&q=90',
     description: 'Kuah hangat menyegarkan saat musim hujan di Jogja. Bisa dimasak pakai panci kompor maupun rice cooker.',
     equipment: ['Panci', 'Pisau', 'Talenan'],
     ingredients: [
@@ -177,7 +177,7 @@ export const RECIPES_DB: Recipe[] = [
     difficulty: 'Sangat Mudah',
     cookingTime: 12,
     outsidePrice: 14000,
-    image: 'https://images.unsplash.com/photo-1510693206972-df098062cb71?auto=format&fit=crop&w=800&q=80',
+    image: 'https://cdn0-production-images-kly.akamaized.net/F_sIGoA4X88DaF8IIPyb3hcnEDk=/0x154:1920x1236/1280x720/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/2396529/original/054088800_1540958516-telur_pixabay_WangDaxiong.JPG',
     description: 'Kombinasi protein telur dan serat sawi hijau dalam satu wajan. Praktis dan mengenyangkan.',
     equipment: ['Kompor', 'Wajan', 'Pisau'],
     ingredients: [
