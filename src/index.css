@@ -60,6 +60,8 @@ body {
   --secondary: #f6d763;
   --secondary-light: #ebe4d4;
   --secondary-dark: #45556c;
+
+  --bg-opacity: 0.1;
 }
 
 [data-theme="dark"] {
@@ -72,4 +74,6 @@ body {
   --secondary: #e3c44d;
   --secondary-light: #1f201c;
   --secondary-dark: ;
+
+  --bg-opacity: 1;
 }

@@ -22,9 +22,10 @@ export function Hero({ slideIndex, onSelectSlide, onOpenRecipe, onStartPlanner }
   return (
     <div className="relative overflow-hidden bg-(--secondary-light) text-(--primary-dark) min-h-[calc(100dvh-4rem)] flex flex-col">
       {/* Decorative plate line art */}
-      <div className="pointer-events-none absolute -right-16 -bottom-16 w-80 h-80 rounded-full border-[24px] border-(--primary-dark)-400/10 flex items-center justify-center">
+      <img className='absolute' style={{ opacity: "var(--bg-opacity)" }} src="/bg.png" alt="background-doodle" />
+      {/* <div className="pointer-events-none absolute -right-16 -bottom-16 w-80 h-80 rounded-full border-[24px] border-(--primary-dark)-400/10 flex items-center justify-center">
         <div className="w-48 h-48 rounded-full border-2 border-dashed border-(--primary-dark)-400/20"></div>
-      </div>
+      </div> */}
 
       <div className="relative z-10 flex-1 flex flex-col w-full max-w-6xl mx-auto px-4 sm:px-6 pt-6 sm:pt-8 pb-10">
       {/* Top micro-navigation */}
@@ -115,7 +116,7 @@ export function Hero({ slideIndex, onSelectSlide, onOpenRecipe, onStartPlanner }
 
         {/* Center: plate + wordmark */}
         <div className="lg:col-span-6 relative flex items-center justify-center order-1 lg:order-2 py-2">
-          <div className="relative w-60 h-60 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full bg-white p-2.5 shadow-2xl shadow-(--primary-dark)/15 transition-all duration-500">
+          <div className="relative w-60 h-60 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full bg-(--secondary) p-2.5 shadow-2xl shadow-(--primary-dark)/15 transition-all duration-500">
             <FallbackImg
               src={slide.image}
               alt="Menu Unggulan Anak Kos"
