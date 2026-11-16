@@ -16,10 +16,10 @@ export function Step3Budget({ planner, update, goToStep, onGenerate }: Step3Prop
   const avg = totalMeals > 0 ? Math.round(planner.totalBudget / totalMeals) : 0;
 
   return (
-    <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-6">
+    <div className="bg-(--primary-light) rounded-3xl p-6 sm:p-8 border border-(--primary-dark)-200 shadow-sm space-y-6">
       <div>
-        <h2 className="text-xl sm:text-2xl font-bold text-slate-900">Konfigurasi Total Budget</h2>
-        <p className="text-sm text-slate-500 mt-1">
+        <h2 className="text-xl sm:text-2xl font-bold text-(--primary-dark)">Konfigurasi Total Budget</h2>
+        <p className="text-sm text-(--primary-dark)-500 mt-1">
           Masukkan batas maksimal anggaran makan untuk seluruh periode{' '}
           <strong>
             {planner.durationDays} hari ({totalMeals} kali makan)
@@ -30,15 +30,15 @@ export function Step3Budget({ planner, update, goToStep, onGenerate }: Step3Prop
 
       <div className="space-y-4">
         <div className="relative">
-          <span className="absolute left-4 top-1/2 -translate-y-1/2 font-bold text-slate-400 text-lg">Rp</span>
+          <span className="absolute left-4 top-1/2 -tran(--primary-dark)-y-1/2 font-bold text-(--primary-dark)-400 text-lg">Rp</span>
           <input
             type="number"
             value={planner.totalBudget === 0 ? '' : planner.totalBudget}
-            min={10000}
+            min={5000}
             step={5000}
             aria-label="Total budget"
             onChange={(e) => update({ totalBudget: parseInt(e.target.value, 10) || 0 })}
-            className="w-full pl-12 pr-4 py-4 rounded-2xl border-2 border-slate-200 focus:border-emerald-600 focus:outline-none text-2xl font-extrabold text-slate-900"
+            className="w-full pl-12 pr-4 py-4 rounded-2xl border-2 border-(--primary-dark)-200 focus:border-(--primary) focus:outline-none text-2xl font-extrabold text-(--primary-dark)"
           />
         </div>
 
@@ -48,7 +48,7 @@ export function Step3Budget({ planner, update, goToStep, onGenerate }: Step3Prop
               key={p.amount}
               type="button"
               onClick={() => update({ totalBudget: p.amount })}
-              className="px-3.5 py-1.5 rounded-xl bg-slate-100 hover:bg-emerald-50 hover:text-emerald-700 text-xs font-semibold text-slate-700 transition"
+              className="px-3.5 py-1.5 rounded-xl bg-(--primary-dark)-100 hover:bg-(--primary)/10 hover:text-(--primary) text-xs font-semibold text-(--primary-dark)-700 transition"
             >
               {p.label}
             </button>
@@ -72,13 +72,13 @@ export function Step3Budget({ planner, update, goToStep, onGenerate }: Step3Prop
       <div className="pt-4 flex justify-between">
         <button
           onClick={() => goToStep(2)}
-          className="px-5 py-3 rounded-2xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-sm transition"
+          className="px-5 py-3 rounded-2xl bg-(--primary-dark)-100 hover:bg-(--primary-dark)-200 text-(--primary-dark)-700 font-semibold text-sm transition"
         >
           <i className="fa-solid fa-arrow-left mr-1.5"></i>Kembali
         </button>
         <button
           onClick={onGenerate}
-          className="px-6 py-3 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm shadow-md shadow-emerald-600/20 transition flex items-center gap-2"
+          className="px-6 py-3 rounded-2xl bg-(--primary) hover:bg-(--primary)/85 text-white font-bold text-sm shadow-md shadow-(--primary)/20 transition flex items-center gap-2"
         >
           <i className="fa-solid fa-wand-magic-sparkles"></i>
           <span>Generate Rekomendasi AI</span>

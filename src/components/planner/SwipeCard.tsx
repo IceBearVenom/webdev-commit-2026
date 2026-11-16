@@ -69,61 +69,61 @@ export function SwipeCard({ recipe: rec, ownedNames, exiting, onDecide }: SwipeC
 
   return (
     <div
-      className={`swipe-card ${dragging ? 'dragging' : ''} ${animClass} w-full bg-white rounded-3xl border border-slate-200 shadow-xl overflow-hidden relative cursor-grab active:cursor-grabbing`}
-      style={dragX !== 0 ? { transform: `translateX(${dragX}px) rotate(${dragX * 0.05}deg)` } : undefined}
+      className={`swipe-card ${dragging ? 'dragging' : ''} ${animClass} w-full bg-(--primary-light) rounded-3xl border border-(--primary-dark) shadow-xl overflow-hidden relative cursor-grab active:cursor-grabbing`}
+      style={dragX !== 0 ? { transform: `tran(--primary-dark)X(${dragX}px) rotate(${dragX * 0.05}deg)` } : undefined}
       onMouseDown={(e) => begin(e.clientX)}
       onTouchStart={(e) => begin(e.touches[0].clientX)}
     >
       {/* Stamps */}
       <div
-        className="badge-stamp pointer-events-none absolute top-6 left-6 z-20 px-4 py-1.5 rounded-xl border-4 border-emerald-500 text-emerald-500 font-black text-xl uppercase -rotate-12 bg-white/90"
+        className="badge-stamp pointer-events-none absolute top-6 left-6 z-20 px-4 py-1.5 rounded-xl border-4 border-(--primary) text-(--primary) font-black text-xl uppercase -rotate-12 bg-(--primary-light)/90"
         style={{ opacity: likeOpacity }}
       >
         PILIH
       </div>
       <div
-        className="badge-stamp pointer-events-none absolute top-6 right-6 z-20 px-4 py-1.5 rounded-xl border-4 border-rose-500 text-rose-500 font-black text-xl uppercase rotate-12 bg-white/90"
+        className="badge-stamp pointer-events-none absolute top-6 right-6 z-20 px-4 py-1.5 rounded-xl border-4 border-rose-500 text-rose-500 font-black text-xl uppercase rotate-12 bg-(--primary-light)/90"
         style={{ opacity: nopeOpacity }}
       >
         LEWATI
       </div>
 
-      <div className="relative h-52 bg-slate-100">
+      <div className="relative h-52 bg-(--primary-dark)">
         <FallbackImg
           src={rec.image}
           alt={rec.name}
           fallbackSrc={placeholderImage(rec.name, 600, 400)}
           className="w-full h-full object-cover pointer-events-none"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/75 via-transparent to-transparent"></div>
-        <div className="absolute bottom-3 left-4 right-4 flex items-end justify-between text-white">
+        <div className="absolute inset-0 bg-gradient-to-t from-(--primary-dark)/75 via-transparent to-transparent"></div>
+        <div className="absolute bottom-3 left-4 right-4 flex items-end justify-between text-(--primary-light)">
           <div>
-            <span className="text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-emerald-600">{rec.category}</span>
+            <span className="text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-(--primary)">{rec.category}</span>
             <h3 className="text-xl font-extrabold mt-1 leading-tight">{rec.name}</h3>
           </div>
         </div>
       </div>
 
       <div className="p-5 space-y-4">
-        <p className="text-xs sm:text-sm text-slate-600 line-clamp-2">{rec.description}</p>
+        <p className="text-xs sm:text-sm text-(--secondary-dark) line-clamp-2">{rec.description}</p>
 
-        <div className="grid grid-cols-3 gap-2 p-3 rounded-2xl bg-slate-50 border border-slate-100 text-center">
+        <div className="grid grid-cols-3 gap-2 p-3 rounded-2xl bg-(--primary-dark)-50 border border-(--primary-dark)-100 text-center">
           <div>
-            <span className="text-[10px] text-slate-400 block">Biaya Masak</span>
-            <span className="text-sm font-extrabold text-slate-900">{formatRupiah(rec.cookCost)}</span>
+            <span className="text-[10px] text-(--primary-dark)-400 block">Biaya Masak</span>
+            <span className="text-sm font-extrabold text-(--primary-dark)">{formatRupiah(rec.cookCost)}</span>
           </div>
-          <div className="border-x border-slate-200">
-            <span className="text-[10px] text-slate-400 block">Waktu</span>
-            <span className="text-sm font-bold text-slate-700">{rec.cookingTime} mnt</span>
+          <div className="border-x border-(--primary-dark)-200">
+            <span className="text-[10px] text-(--primary-dark)-400 block">Waktu</span>
+            <span className="text-sm font-bold text-(--primary-dark)-700">{rec.cookingTime} mnt</span>
           </div>
           <div>
-            <span className="text-[10px] text-emerald-600 block font-semibold">Hemat</span>
-            <span className="text-sm font-extrabold text-emerald-600">{formatRupiah(rec.savings)}</span>
+            <span className="text-[10px] text-(--primary) block font-semibold">Hemat</span>
+            <span className="text-sm font-extrabold text-(--primary)">{formatRupiah(rec.savings)}</span>
           </div>
         </div>
 
         <div className="space-y-1.5">
-          <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">Bahan Utama:</span>
+          <span className="text-[11px] font-bold text-(--primary-dark)-500 uppercase tracking-wider">Bahan Utama:</span>
           <div className="flex flex-wrap gap-1.5">
             {rec.ingredients.slice(0, 4).map((ing) => {
               const isOwned = ownedNames.includes(ing.name.toLowerCase());
@@ -131,7 +131,7 @@ export function SwipeCard({ recipe: rec, ownedNames, exiting, onDecide }: SwipeC
                 <span
                   key={ing.name}
                   className={`text-[11px] px-2.5 py-1 rounded-lg font-medium ${
-                    isOwned ? 'bg-emerald-100 text-emerald-800' : 'bg-slate-100 text-slate-600'
+                    isOwned ? 'bg-(--primary)/20 text-(--primary-dark)' : 'bg-(--primary-dark)-100 text-(--secondary-dark)'
                   }`}
                 >
                   {isOwned && <i className="fa-solid fa-check mr-1"></i>}
@@ -141,8 +141,8 @@ export function SwipeCard({ recipe: rec, ownedNames, exiting, onDecide }: SwipeC
             })}
           </div>
           {matchedCount > 0 && (
-            <p className="text-[11px] text-emerald-600 font-medium pt-0.5">
-              <i className="fa-solid fa-sparkles mr-1"></i>
+            <p className="text-[11px] text-(--primary) font-medium pt-0.5">
+              <i className="fa-solid fa-wand-magic-sparkles mr-1"></i>
               Memanfaatkan {matchedCount} bahan yang sudah kamu punya!
             </p>
           )}

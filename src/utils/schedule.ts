@@ -11,6 +11,7 @@ export function getSlotLabel(frequencyPerDay: number, slotIndex: number): string
 /** Distribute selected recipes across [day][slot], cycling when there are fewer recipes than slots. */
 export function buildSchedule(selected: Recipe[], days: number, frequencyPerDay: number): Recipe[][] {
   const matrix: Recipe[][] = [];
+  if (selected.length === 0) return matrix;
   let pointer = 0;
   for (let d = 0; d < days; d++) {
     matrix[d] = [];
@@ -20,4 +21,12 @@ export function buildSchedule(selected: Recipe[], days: number, frequencyPerDay:
     }
   }
   return matrix;
+}
+
+/**
+ * Every meal that will actually be cooked, in order. When fewer recipes are picked than there are
+ * slots, recipes repeat, so cost and shopping totals must be computed on this list, not on the raw picks.
+ */
+export function getScheduledMeals(selected: Recipe[], days: number, frequencyPerDay: number): Recipe[] {
+  return buildSchedule(selected, days, frequencyPerDay).flat();
 }

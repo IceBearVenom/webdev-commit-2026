@@ -1,6 +1,8 @@
 import { HERO_SLIDES } from '../../data/heroSlides';
 import { FallbackImg } from '../common/FallbackImg';
-import { placeholderImage } from '../../utils/format';
+import { RECIPES_DB } from '../../data/recipes';
+import { calculateRecipeMetrics } from '../../utils/calculations';
+import { formatRupiah, placeholderImage } from '../../utils/format';
 
 interface HeroProps {
   slideIndex: number;
@@ -13,12 +15,15 @@ export function Hero({ slideIndex, onSelectSlide, onOpenRecipe, onStartPlanner }
   const count = HERO_SLIDES.length;
   const select = (i: number) => onSelectSlide((i + count) % count);
   const slide = HERO_SLIDES[slideIndex];
+  // Show the real computed cost so it never drifts from the price database.
+  const slideRecipe = RECIPES_DB.find((r) => r.id === slide.recipeId);
+  const slideCost = slideRecipe ? formatRupiah(calculateRecipeMetrics(slideRecipe).cookCost) : '';
 
   return (
-    <div className="relative overflow-hidden bg-[#e6e9e6] text-slate-900 min-h-[calc(100dvh-4rem)] flex flex-col">
+    <div className="relative overflow-hidden bg-(--secondary-light) text-(--primary-dark) min-h-[calc(100dvh-4rem)] flex flex-col">
       {/* Decorative plate line art */}
-      <div className="pointer-events-none absolute -right-16 -bottom-16 w-80 h-80 rounded-full border-[24px] border-slate-400/10 flex items-center justify-center">
-        <div className="w-48 h-48 rounded-full border-2 border-dashed border-slate-400/20"></div>
+      <div className="pointer-events-none absolute -right-16 -bottom-16 w-80 h-80 rounded-full border-[24px] border-(--primary-dark)-400/10 flex items-center justify-center">
+        <div className="w-48 h-48 rounded-full border-2 border-dashed border-(--primary-dark)-400/20"></div>
       </div>
 
       <div className="relative z-10 flex-1 flex flex-col w-full max-w-6xl mx-auto px-4 sm:px-6 pt-6 sm:pt-8 pb-10">
@@ -32,8 +37,8 @@ export function Hero({ slideIndex, onSelectSlide, onOpenRecipe, onStartPlanner }
               onClick={() => select(idx)}
               className={
                 idx === slideIndex
-                  ? 'text-slate-900 line-through decoration-2 decoration-emerald-700 transition'
-                  : 'text-slate-500 hover:text-slate-900 transition'
+                  ? 'text-(--primary-dark) line-through decoration-2 decoration-(--primary) transition'
+                  : 'text-(--primary-dark)-500 hover:text-(--primary-dark) transition'
               }
             >
               {s.tabLabel}
@@ -42,15 +47,15 @@ export function Hero({ slideIndex, onSelectSlide, onOpenRecipe, onStartPlanner }
         </div>
 
         <div className="flex items-center gap-2 sm:gap-3">
-          <span className="hidden md:inline-flex items-center gap-1.5 text-[11px] font-medium text-slate-600 mr-2">
-            <i className="fa-solid fa-location-dot text-emerald-700"></i>
+          <span className="hidden md:inline-flex items-center gap-1.5 text-[11px] font-medium text-(--secondary-dark) mr-2">
+            <i className="fa-solid fa-location-dot text-(--primary)"></i>
             Pasar Jogja • Update 13 Nov 2026
           </span>
           <button
             type="button"
             onClick={() => select(slideIndex - 1)}
             aria-label="Menu Sebelumnya"
-            className="w-8 h-8 rounded-full border border-slate-400/60 hover:border-slate-800 text-slate-700 hover:text-slate-950 flex items-center justify-center transition"
+            className="w-8 h-8 rounded-full border border-(--primary-dark)-400/60 hover:border-(--primary-dark)-800 text-(--primary-dark)-700 hover:text-(--primary-dark)-950 flex items-center justify-center transition"
           >
             <i className="fa-solid fa-chevron-left text-[10px]"></i>
           </button>
@@ -58,7 +63,7 @@ export function Hero({ slideIndex, onSelectSlide, onOpenRecipe, onStartPlanner }
             type="button"
             onClick={() => select(slideIndex + 1)}
             aria-label="Menu Berikutnya"
-            className="w-8 h-8 rounded-full border border-slate-400/60 hover:border-slate-800 text-slate-700 hover:text-slate-950 flex items-center justify-center transition"
+            className="w-8 h-8 rounded-full border border-(--primary-dark)-400/60 hover:border-(--primary-dark)-800 text-(--primary-dark)-700 hover:text-(--primary-dark)-950 flex items-center justify-center transition"
           >
             <i className="fa-solid fa-chevron-right text-[10px]"></i>
           </button>
@@ -66,7 +71,7 @@ export function Hero({ slideIndex, onSelectSlide, onOpenRecipe, onStartPlanner }
             type="button"
             onClick={onStartPlanner}
             title="Mulai AI Meal Planner"
-            className="w-8 h-8 rounded-full bg-[#243b4a] hover:bg-emerald-700 text-white flex items-center justify-center shadow-sm transition"
+            className="w-8 h-8 rounded-full bg-(--primary) hover:bg-(--secondary) text-white hover:text-(--primary-dark) flex items-center justify-center shadow-sm transition"
           >
             <i className="fa-solid fa-wand-magic-sparkles text-xs"></i>
           </button>
@@ -90,16 +95,17 @@ export function Hero({ slideIndex, onSelectSlide, onOpenRecipe, onStartPlanner }
               >
                 <span
                   className={`text-2xl sm:text-4xl font-black tracking-tighter transition ${
-                    active ? 'text-[#243b4a]' : 'text-slate-400'
+                    active ? 'text-(--primary)' : 'text-(--primary-dark)/40'
                   }`}
                 >
                   {String(idx + 1).padStart(2, '0')}
                 </span>
-                <img
+                <FallbackImg
                   src={s.image.replace('w=800', 'w=200')}
+                  fallbackSrc={placeholderImage(s.titleLines.join(' '), 200, 200)}
                   alt={s.titleLines.join(' ')}
                   className={`w-11 h-11 sm:w-12 sm:h-12 rounded-full object-cover transition ${
-                    active ? 'ring-2 ring-[#243b4a] shadow-md' : 'ring-1 ring-slate-300 shadow-sm'
+                    active ? 'ring-2 ring-(--primary) shadow-md' : 'ring-1 ring-(--primary-dark)-300 shadow-sm'
                   }`}
                 />
               </button>
@@ -109,7 +115,7 @@ export function Hero({ slideIndex, onSelectSlide, onOpenRecipe, onStartPlanner }
 
         {/* Center: plate + wordmark */}
         <div className="lg:col-span-6 relative flex items-center justify-center order-1 lg:order-2 py-2">
-          <div className="relative w-60 h-60 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full bg-white p-2.5 shadow-2xl shadow-slate-900/15 transition-all duration-500">
+          <div className="relative w-60 h-60 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full bg-white p-2.5 shadow-2xl shadow-(--primary-dark)/15 transition-all duration-500">
             <FallbackImg
               src={slide.image}
               alt="Menu Unggulan Anak Kos"
@@ -126,22 +132,22 @@ export function Hero({ slideIndex, onSelectSlide, onOpenRecipe, onStartPlanner }
 
         {/* Right: copy + actions */}
         <div className="lg:col-span-3 flex flex-col items-center lg:items-end text-center lg:text-right space-y-3 order-3">
-          <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-slate-500">{slide.kicker}</span>
-          <h1 className="text-2xl sm:text-3xl font-extrabold text-[#243b4a] leading-tight">
+          <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-(--primary-dark)-500">{slide.kicker}</span>
+          <h1 className="text-2xl sm:text-3xl font-extrabold text-(--primary-dark) leading-tight">
             {slide.titleLines[0]}
             <br />
             {slide.titleLines[1]}
           </h1>
-          <p className="text-xs text-slate-600 max-w-xs leading-relaxed">
+          <p className="text-xs text-(--secondary-dark) max-w-xs leading-relaxed">
             {slide.metaBefore}
-            <strong>{slide.metaHighlight}</strong>
+            <strong>{slideCost}</strong>
             {slide.metaAfter}
           </p>
           <div className="pt-2 flex flex-wrap justify-center lg:justify-end gap-2">
             <button
               type="button"
               onClick={onStartPlanner}
-              className="px-5 py-2.5 rounded-full bg-[#243b4a] hover:bg-emerald-700 text-white font-bold text-xs shadow-md transition flex items-center gap-2"
+              className="px-5 py-2.5 rounded-full bg-(--primary) hover:bg-(--secondary) text-white hover:text-(--primary-dark) font-bold text-xs shadow-md transition flex items-center gap-2"
             >
               <i className="fa-solid fa-robot"></i>
               <span>Mulai AI Planner</span>
@@ -149,7 +155,7 @@ export function Hero({ slideIndex, onSelectSlide, onOpenRecipe, onStartPlanner }
             <button
               type="button"
               onClick={() => onOpenRecipe(slide.recipeId)}
-              className="px-4 py-2.5 rounded-full bg-white/80 hover:bg-white text-slate-800 border border-slate-300 font-semibold text-xs transition"
+              className="px-4 py-2.5 rounded-full bg-(--primary-light) hover:bg-(--secondary) text-(--primary-dark)-800 border border-(--primary-dark)-300 font-semibold text-xs transition"
             >
               Lihat Resep
             </button>
@@ -163,7 +169,7 @@ export function Hero({ slideIndex, onSelectSlide, onOpenRecipe, onStartPlanner }
             type="button"
             onClick={() => document.getElementById('resep-section')?.scrollIntoView({ behavior: 'smooth' })}
             aria-label="Lihat resep"
-            className="w-10 h-10 rounded-full border border-slate-400/60 hover:border-slate-800 text-slate-700 flex items-center justify-center transition animate-bounce"
+            className="w-10 h-10 rounded-full border border-(--primary-dark)-400/60 hover:border-(--primary-dark)-800 text-(--primary-dark)-700 flex items-center justify-center transition animate-bounce"
           >
             <i className="fa-solid fa-chevron-down text-xs"></i>
           </button>

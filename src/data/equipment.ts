@@ -4,13 +4,13 @@ export const EQUIPMENT_OPTIONS: EquipmentOption[] = [
   { id: 'Rice cooker', label: 'Rice Cooker', icon: 'fa-bowl-rice' },
   { id: 'Kompor', label: 'Kompor', icon: 'fa-fire-burner' },
   { id: 'Wajan', label: 'Wajan', icon: 'fa-utensils' },
-  { id: 'Panci', label: 'Panci', icon: 'fa-pot-food' },
-  { id: 'Pisau', label: 'Pisau', icon: 'fa-knife-kitchen' },
-  { id: 'Talenan', label: 'Talenan', icon: 'fa-board' },
+  { id: 'Panci', label: 'Panci', icon: 'fa-kitchen-set' },
+  { id: 'Pisau', label: 'Pisau', icon: 'fa-hocho' },
+  { id: 'Talenan', label: 'Talenan', icon: 'fa-table-cells-large' },
   { id: 'Microwave', label: 'Microwave', icon: 'fa-microchip' },
 ];
 
-export const INGREDIENT_UNITS = ['gram', 'butir', 'papan', 'bungkus', 'ikat', 'siung', 'sdm', 'ml'] as const;
+export const INGREDIENT_UNITS = ['gram', 'butir', 'papan', 'bungkus', 'ikat', 'siung', 'sdm', 'ml', 'buah', 'sachet', 'keping'] as const;
 
 export const QUICK_ADD_INGREDIENTS = [
   { name: 'Beras', qty: 500, unit: 'gram', label: '+ Beras (500g)' },

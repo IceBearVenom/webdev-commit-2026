@@ -2,10 +2,10 @@ import { useEffect, useState } from 'react';
 import type { Toast, ToastType } from '../../types';
 
 const COLORS: Record<ToastType, string> = {
-  success: 'bg-emerald-700 text-white border-emerald-600',
-  warning: 'bg-amber-500 text-slate-950 border-amber-400',
+  success: 'bg-(--primary) text-white border-(--primary)',
+  warning: 'bg-amber-500 text-(--primary-dark)-950 border-amber-400',
   error: 'bg-rose-600 text-white border-rose-500',
-  info: 'bg-slate-800 text-white border-slate-700',
+  info: 'bg-(--primary-dark)-800 text-white border-(--primary-dark)-700',
 };
 
 const ICONS: Record<ToastType, string> = {
@@ -37,7 +37,7 @@ function ToastItem({ toast, onDone }: ToastItemProps) {
   return (
     <div
       className={`pointer-events-auto flex items-center gap-3 px-4 py-3 rounded-2xl shadow-lg border text-xs sm:text-sm font-medium transition-all duration-300 transform ${
-        visible ? 'translate-y-0 opacity-100' : 'translate-y-2 opacity-0'
+        visible ? 'tran(--primary-dark)-y-0 opacity-100' : 'tran(--primary-dark)-y-2 opacity-0'
       } ${COLORS[toast.type]}`}
     >
       <i className={`fa-solid ${ICONS[toast.type]} text-base`}></i>

@@ -2,12 +2,11 @@
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css');
 
 @import "tailwindcss";
-@tailwind utilities;
 
 body {
   font-family: 'Inter', sans-serif;
-  background-color: #f8fafc;
-  color: #0f172a;
+  background-color: var(--primary-light);
+  color: var(--primary-dark);
   overflow-x: hidden;
 }
 
@@ -21,11 +20,11 @@ body {
   transition: none;
 }
 .swipe-right-anim {
-  transform: translateX(130%) rotate(18deg) !important;
+  transform: tran(--primary-dark)X(130%) rotate(18deg) !important;
   opacity: 0 !important;
 }
 .swipe-left-anim {
-  transform: translateX(-130%) rotate(-18deg) !important;
+  transform: tran(--primary-dark)X(-130%) rotate(-18deg) !important;
   opacity: 0 !important;
 }
 .badge-stamp {
@@ -34,8 +33,8 @@ body {
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  width: 0px;
+  height: 0px;
 }
 ::-webkit-scrollbar-track {
   background: #f1f5f9;
@@ -46,4 +45,30 @@ body {
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #94a3b8;
+}
+
+/* Color Theme */
+:root,
+[data-theme="light"] {
+  color-scheme: light;
+  /* Main Color */
+  --primary: #3E6842;
+  --primary-dark: #212121;
+  --primary-light: #FCFEF6;
+
+  --secondary: #f6d763;
+  --secondary-light: #ebe4d4;
+  --secondary-dark: #45556c;
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+  /* Main Color */
+  --primary: #64b56d;
+  --primary-dark: #dedede;
+  --primary-light: #131211;
+
+  --secondary: #e3c44d;
+  --secondary-light: #1f201c;
+  --secondary-dark: ;
 }
