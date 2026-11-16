@@ -111,7 +111,6 @@ export interface HeroSlide {
   kicker: string;
   titleLines: [string, string];
   metaBefore: string;
-  metaHighlight: string;
   metaAfter: string;
   image: string;
   recipeId: string;

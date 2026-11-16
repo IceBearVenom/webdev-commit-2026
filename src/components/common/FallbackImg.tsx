@@ -1,22 +1,22 @@
-import type { ImgHTMLAttributes } from 'react';
+import { useState, type ImgHTMLAttributes } from 'react';
 
 interface FallbackImgProps extends ImgHTMLAttributes<HTMLImageElement> {
   alt: string;
   fallbackSrc: string;
 }
 
-/** <img> that swaps to a placeholder once if the original fails to load. */
-export function FallbackImg({ fallbackSrc, onError, alt, ...rest }: FallbackImgProps) {
+/** <img> that swaps to a placeholder when the current `src` fails to load (re-armed whenever `src` changes). */
+export function FallbackImg({ fallbackSrc, onError, alt, src, ...rest }: FallbackImgProps) {
+  const [failedSrc, setFailedSrc] = useState<string | undefined>();
+  const showFallback = failedSrc !== undefined && failedSrc === src;
+
   return (
     <img
       {...rest}
       alt={alt}
+      src={showFallback ? fallbackSrc : src}
       onError={(e) => {
-        const el = e.currentTarget;
-        if (!el.dataset.failed) {
-          el.dataset.failed = '1';
-          el.src = fallbackSrc;
-        }
+        if (!showFallback) setFailedSrc(src);
         onError?.(e);
       }}
     />

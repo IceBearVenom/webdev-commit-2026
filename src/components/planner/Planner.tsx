@@ -21,7 +21,7 @@ interface PlannerProps {
 }
 
 export function Planner({ planner, setPlanner, showToast, onOpenRecipe, onCancel, onSavePlan }: PlannerProps) {
-  const timerRef = useRef<number>();
+  const timerRef = useRef<number | undefined>(undefined);
 
   const update = useCallback(
     (patch: Partial<PlannerState>) => setPlanner((prev) => ({ ...prev, ...patch })),

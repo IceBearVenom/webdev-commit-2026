@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import type { PlannerState, SavedMealPlan, View } from './types';
 import { useToasts } from './hooks/useToasts';
-import { evaluateMealPlanFinancials } from './utils/calculations';
+import { evaluateSelection } from './utils/calculations';
 import { createInitialPlannerState } from './utils/plannerState';
 import { Header } from './components/layout/Header';
 import { Footer } from './components/layout/Footer';
@@ -13,11 +13,23 @@ import { RecipeModal } from './components/recipe/RecipeModal';
 import { SavedPlanDetail } from './components/saved/SavedPlanDetail';
 import { Planner } from './components/planner/Planner';
 
+const STORAGE_KEY = 'dapurkos:savedPlans';
+
+function loadSavedPlans(): SavedMealPlan[] {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    const parsed: unknown = raw ? JSON.parse(raw) : [];
+    return Array.isArray(parsed) ? (parsed as SavedMealPlan[]) : [];
+  } catch {
+    return [];
+  }
+}
+
 export default function App() {
   const [view, setView] = useState<View>('home');
   const [selectedCategory, setSelectedCategory] = useState('Semua');
   const [heroIndex, setHeroIndex] = useState(0);
-  const [savedPlans, setSavedPlans] = useState<SavedMealPlan[]>([]);
+  const [savedPlans, setSavedPlans] = useState<SavedMealPlan[]>(loadSavedPlans);
   const [activePlanIndex, setActivePlanIndex] = useState<number | null>(null);
   const [modalRecipeId, setModalRecipeId] = useState<string | null>(null);
   const [planner, setPlanner] = useState<PlannerState>(createInitialPlannerState);
@@ -27,11 +39,22 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [view]);
 
+  // The UI promises plans are stored in the browser, so actually persist them.
+  useEffect(() => {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(savedPlans));
+    } catch {
+      // storage full / unavailable (e.g. private mode): keep working in memory
+    }
+  }, [savedPlans]);
+
   const startMealPlanner = () => {
     setPlanner((prev) => ({
       ...prev,
       step: 1,
       selectedRecipes: [],
+      candidateRecipes: [],
+      generatedSchedule: [],
       currentSwipeIndex: 0,
       isGenerating: false,
     }));
@@ -39,12 +62,21 @@ export default function App() {
   };
 
   const savePlan = () => {
-    const evalData = evaluateMealPlanFinancials(planner.selectedRecipes, planner.userIngredients, planner.totalBudget);
+    const evalData = evaluateSelection(
+      planner.selectedRecipes,
+      planner.userIngredients,
+      planner.totalBudget,
+      planner.durationDays,
+      planner.frequencyPerDay,
+    );
+    // Number plans after the highest existing number so titles stay unique after deletions.
+    const nextNumber =
+      Math.max(0, ...savedPlans.map((p) => Number(p.title.match(/#(\d+)$/)?.[1] ?? 0))) + 1;
     const createdAt = new Date().toLocaleDateString('id-ID', { day: 'numeric', month: 'short', year: 'numeric' });
 
     const newPlan: SavedMealPlan = {
       id: 'mp-' + Date.now(),
-      title: `Rencana Makan Kos #${savedPlans.length + 1}`,
+      title: `Rencana Makan Kos #${nextNumber}`,
       createdAt,
       durationDays: planner.durationDays,
       frequencyPerDay: planner.frequencyPerDay,

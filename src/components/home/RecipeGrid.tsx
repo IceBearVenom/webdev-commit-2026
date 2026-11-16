@@ -22,8 +22,8 @@ export function RecipeGrid({ selectedCategory, onSelectCategory, onOpenRecipe }:
     <div id="resep-section" className="space-y-5 scroll-mt-20">
       <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
         <div>
-          <h2 className="text-2xl font-bold text-slate-900">Resep Rekomendasi</h2>
-          <p className="text-sm text-slate-500 mt-1">
+          <h2 className="text-2xl font-bold text-(--primary-dark)">Resep Rekomendasi</h2>
+          <p className="text-sm text-(--primary-dark)-500 mt-1">
             Menu hemat terverifikasi untuk mahasiswa Yogyakarta lengkap dengan hitungan penghematan.
           </p>
         </div>
@@ -34,8 +34,8 @@ export function RecipeGrid({ selectedCategory, onSelectCategory, onOpenRecipe }:
               onClick={() => onSelectCategory(cat)}
               className={`whitespace-nowrap px-3.5 py-1.5 rounded-full text-xs font-semibold transition ${
                 selectedCategory === cat
-                  ? 'bg-emerald-600 text-white shadow-sm'
-                  : 'bg-white border border-slate-200 text-slate-600 hover:border-emerald-300'
+                  ? 'bg-(--primary) text-white shadow-sm'
+                  : 'bg-(--primary-light) border border-(--primary-dark) text-(--secondary-dark) hover:border-(--primary)/40'
               }`}
             >
               {cat}

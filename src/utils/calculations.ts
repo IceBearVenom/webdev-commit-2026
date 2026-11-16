@@ -1,4 +1,5 @@
 import { YOGYA_PRICE_DB } from '../data/priceDb';
+import { getScheduledMeals } from './schedule';
 import { RECIPES_DB } from '../data/recipes';
 import type {
   AvailableUsedItem,
@@ -29,6 +30,10 @@ export function calculateRecipeMetrics(recipe: Recipe): RecipeMetrics {
   };
 }
 
+function ownedKey(name: string, unit: string): string {
+  return `${name.trim().toLowerCase()}|${unit.trim().toLowerCase()}`;
+}
+
 /** Full meal plan evaluation: used cost vs. shopping outlay. */
 export function evaluateMealPlanFinancials(
   selectedRecipes: Recipe[],
@@ -52,9 +57,11 @@ export function evaluateMealPlanFinancials(
     });
   });
 
+  // Case-insensitive, and only counts stock in the same unit the recipes use (500 gram != 500 butir).
   const ownedMap: Record<string, number> = {};
   userIngredients.forEach((u) => {
-    ownedMap[u.name] = (ownedMap[u.name] || 0) + Number(u.qty);
+    const key = ownedKey(u.name, u.unit);
+    ownedMap[key] = (ownedMap[key] || 0) + Number(u.qty);
   });
 
   const toBuyList: ToBuyItem[] = [];
@@ -63,7 +70,7 @@ export function evaluateMealPlanFinancials(
 
   Object.keys(totalNeededMap).forEach((name) => {
     const needed = totalNeededMap[name];
-    const ownedQty = ownedMap[name] || 0;
+    const ownedQty = ownedMap[ownedKey(name, needed.unit)] || 0;
     const dbRef = YOGYA_PRICE_DB[name];
 
     if (ownedQty > 0) {
@@ -103,6 +110,21 @@ export function evaluateMealPlanFinancials(
   };
 }
 
+/** Evaluate the picks as they will really be cooked (repeats included) over the planned days. */
+export function evaluateSelection(
+  selected: Recipe[],
+  userIngredients: Ingredient[],
+  totalBudget: number,
+  durationDays: number,
+  frequencyPerDay: number,
+): MealPlanEvaluation {
+  return evaluateMealPlanFinancials(
+    getScheduledMeals(selected, durationDays, frequencyPerDay),
+    userIngredients,
+    totalBudget,
+  );
+}
+
 /** Filter by equipment, score by ingredient overlap & low cost, and build a swipe deck. */
 export function buildCandidateDeck(
   equipment: string[],
@@ -133,9 +155,10 @@ export function buildCandidateDeck(
   return { deck, usedFallback };
 }
 
-/** All recipes with metrics, cheapest first. */
-export function getEconomicalPool(excludeId?: string): RecipeMetrics[] {
-  return RECIPES_DB.map(calculateRecipeMetrics)
+/** Recipes the user can actually cook with their equipment, with metrics, cheapest first. */
+export function getEconomicalPool(equipment: string[], excludeId?: string): RecipeMetrics[] {
+  return RECIPES_DB.filter((rec) => rec.equipment.every((req) => equipment.includes(req)))
+    .map(calculateRecipeMetrics)
     .filter((r) => r.id !== excludeId)
     .sort((a, b) => a.cookCost - b.cookCost);
 }
