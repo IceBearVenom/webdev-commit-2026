@@ -2,7 +2,7 @@
 Deskripsi singkat mengenai tujuan website ini dibuat dan masalah apa yang diselesaikannya.
 
 🔗 **Live Demo:**
-<a href="(https://dapur-kos.vercel.app/)" target="_blank" rel="noopener noreferrer">
+<a href="https://dapur-kos.vercel.app/" target="_blank" rel="noopener noreferrer">
   Tautan Website
 </a>
 ---
