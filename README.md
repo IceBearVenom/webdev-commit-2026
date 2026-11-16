@@ -31,7 +31,7 @@ Deskripsi singkat mengenai tujuan website ini dibuat dan masalah apa yang disele
 
 ---
 
-## Petunjuk Instalasi & Menjalankan Proyek
+## Petunjuk Instalasi & Menjalankan Proyek (Bila tidak di deploy)
 
 Pastikan perangkat Anda sudah terinstal **Git** dan **Node.js** (atau runtime lain yang sesuai).
 
