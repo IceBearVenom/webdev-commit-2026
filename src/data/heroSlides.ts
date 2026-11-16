@@ -9,7 +9,7 @@ export const HERO_SLIDES: HeroSlide[] = [
     metaBefore: 'Biaya masak ',
     metaHighlight: 'Rp 8.440',
     metaAfter: ' vs beli di luar Rp 15.000. Atur jadwal makan hingga 7 hari otomatis sesuai isi dompet.',
-    image: 'https://images.unsplash.com/photo-1525351484163-7529414342d8?auto=format&fit=crop&w=800&q=80',
+    image: 'https://www.dapurkobe.co.id/wp-content/uploads/nasi-telur-sentosa.jpg',
     recipeId: 'rec-1',
   },
   {
@@ -20,7 +20,7 @@ export const HERO_SLIDES: HeroSlide[] = [
     metaBefore: 'Protein tinggi hanya ',
     metaHighlight: 'Rp 8.790',
     metaAfter: ' per porsi. AI memaksimalkan sisa bahan di kos agar anti mubazir.',
-    image: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80',
+    image: 'https://asset.kompas.com/crops/Et1U_ACP-Bj9jlriMwlHdQ0neHk=/0x0:1000x667/1200x800/data/photo/2023/01/11/63be005de85bc.jpeg',
     recipeId: 'rec-2',
   },
   {
