@@ -1,8 +1,7 @@
-# Dapur Kos
 
 Deskripsi singkat mengenai tujuan website ini dibuat dan masalah apa yang diselesaikannya.
 
-🔗 **Live Demo:** [Tautan Website](https://contoh-domain-anda.vercel.app) 
+🔗 **Live Demo:** [Tautan Website](https://dapur-kos.vercel.app/) 
 ---
 
 ## Tim Pengembang
@@ -10,11 +9,11 @@ Deskripsi singkat mengenai tujuan website ini dibuat dan masalah apa yang disele
 **Nama Tim:** Nama Tim Anda
 
 | Nama Anggota | NIM / ID |
-| :--- | :--- | :--- |
+| :--- | :--- |
 | Azki Azziyad | 26/5279227/PA/24271 |
-| Anggota 2 | 12345679 |
-| Anggota 3 | 12345680 |
-| Anggota 3 | 12345680 |
+| Ramadhan Putra W | 26/578311/PA/24223 |
+| Ramadhan Putra W | 26/583263/PA/24478) |
+| Muhammad Hadorihandi | 26/586665/PA/24701 |
 
 ---
 
@@ -27,8 +26,7 @@ Deskripsi singkat mengenai tujuan website ini dibuat dan masalah apa yang disele
 ---
 
 ## Teknologi yang Digunakan
-
-
+Dalam pengembangan produk website ini, kami mengandalkan HTML5 dan CSS3 untuk struktur serta perancangan antarmuka, serta JavaScript (ES6+) sebagai fondasi utama logika aplikasi. Selain itu kami menggunakan framework React.js sebagai pustaka utama untuk membangun komponen antarmuka yang dinamis dan interaktif, serta didukung oleh Tailwind CSS untuk penataan gaya yang efisien dan responsif di berbagai ukuran layar. Lalu untuk memastikan website aplikasi dapat diakses secara publik layanan hosting yang dipilih adalah vercel untuk deployment antarmuka berbasis serverless.
 ---
 
 ## Petunjuk Instalasi & Menjalankan Proyek (Bila tidak di deploy)
