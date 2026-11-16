@@ -1,7 +1,10 @@
 
 Deskripsi singkat mengenai tujuan website ini dibuat dan masalah apa yang diselesaikannya.
 
-🔗 **Live Demo:** [Tautan Website](https://dapur-kos.vercel.app/){target="_blank"}
+🔗 **Live Demo:** 
+<a href="[https://example.com](https://dapur-kos.vercel.app/)" target="_blank" rel="noopener noreferrer">
+  Tautan Website
+</a>
 ---
 
 ## Tim Pengembang
