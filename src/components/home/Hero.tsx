@@ -22,7 +22,7 @@ export function Hero({ slideIndex, onSelectSlide, onOpenRecipe, onStartPlanner }
   return (
     <div className="relative overflow-hidden bg-(--secondary-light) text-(--primary-dark) min-h-[calc(100dvh-4rem)] flex flex-col">
       {/* Decorative plate line art */}
-      <img className='absolute' style={{ opacity: "var(--bg-opacity)" }} src="/bg.png" alt="background-doodle" />
+      <img className='absolute w-full h-full object-cover' style={{ opacity: "var(--bg-opacity)" }} src="/bg.png" alt="background-doodle" />
       {/* <div className="pointer-events-none absolute -right-16 -bottom-16 w-80 h-80 rounded-full border-[24px] border-(--primary-dark)-400/10 flex items-center justify-center">
         <div className="w-48 h-48 rounded-full border-2 border-dashed border-(--primary-dark)-400/20"></div>
       </div> */}
