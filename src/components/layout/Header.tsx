@@ -15,7 +15,7 @@ export function Header({ view, onNavigate, onStartPlanner }: HeaderProps) {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
         <div className="flex items-center gap-2.5 cursor-pointer" onClick={() => onNavigate('home')}>
           <div className="w-10 h-10 rounded-xl bg-(--primary) text-white flex items-center justify-center shadow-sm shadow-(--primary)/20">
-            <img src="/LogoDapurKos.svg" alt="DapurKos" className="w-full h-full object-contain p-1.5" />
+            <img src="/LogoDapurKospolos.svg" alt="DapurKos" className="w-full h-full object-contain" />
           </div>
           <div>
             <span className="font-extrabold text-xl tracking-tight text-(--primary-dark)">
