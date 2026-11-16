@@ -1,1 +1,0 @@
-# webdev-commit-2026
