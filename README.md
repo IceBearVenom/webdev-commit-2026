@@ -37,3 +37,6 @@ Pastikan perangkat Anda sudah terinstal **Git** dan **Node.js** (atau runtime la
 1. **Clone repositori ini:**
    ```bash
    git clone [https://github.com/username/nama-repositori.git](https://github.com/username/nama-repositori.git)
+2. **Install package**
+   ```bash
+   npm install
