@@ -11,9 +11,9 @@ Deskripsi singkat mengenai tujuan website ini dibuat dan masalah apa yang disele
 | Nama Anggota | NIM / ID |
 | :--- | :--- |
 | Azki Azziyad | 26/5279227/PA/24271 |
-| Anggota 2 | 12345679 |
-| Anggota 3 | 12345680 |
-| Anggota 3 | 12345680 |
+| Ramadhan Putra W | 26/578311/PA/24223 |
+| Ramadhan Putra W | 26/583263/PA/24478) |
+| Muhammad Hadorihandi | 26/586665/PA/24701 |
 
 ---
 
