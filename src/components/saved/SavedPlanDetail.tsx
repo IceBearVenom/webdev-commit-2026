@@ -23,7 +23,7 @@ export function SavedPlanDetail({ plan, onBack, onOpenRecipe }: SavedPlanDetailP
         <span>Kembali ke Beranda</span>
       </button>
 
-      <div className="bg-white rounded-3xl p-6 sm:p-8 border border-(--primary-dark)-200 shadow-sm space-y-6">
+      <div className="bg-(--primary-light) rounded-3xl p-6 sm:p-8 border border-(--primary-dark)-200 shadow-sm space-y-6">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-(--primary-dark)-100 pb-5">
           <div>
             <span className="text-xs font-bold text-(--primary) uppercase tracking-wider">Tersimpan di Browser</span>
