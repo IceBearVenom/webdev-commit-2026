@@ -1,8 +1,8 @@
 
 Deskripsi singkat mengenai tujuan website ini dibuat dan masalah apa yang diselesaikannya.
 
-🔗 **Live Demo:** 
-<a href="[https://example.com](https://dapur-kos.vercel.app/)" target="_blank" rel="noopener noreferrer">
+🔗 **Live Demo:**
+<a href="(https://dapur-kos.vercel.app/)" target="_blank" rel="noopener noreferrer">
   Tautan Website
 </a>
 ---
