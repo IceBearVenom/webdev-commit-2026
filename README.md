@@ -1,7 +1,7 @@
 
 Deskripsi singkat mengenai tujuan website ini dibuat dan masalah apa yang diselesaikannya.
 
-🔗 **Live Demo:** [Tautan Website](https://contoh-domain-anda.vercel.app) 
+🔗 **Live Demo:** [Tautan Website](https://dapur-kos.vercel.app/) 
 ---
 
 ## Tim Pengembang
