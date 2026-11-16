@@ -2,6 +2,7 @@
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css');
 
 @import "tailwindcss";
+@tailwind utilities;
 
 body {
   font-family: 'Inter', sans-serif;
@@ -20,11 +21,11 @@ body {
   transition: none;
 }
 .swipe-right-anim {
-  transform: tran(--primary-dark)X(130%) rotate(18deg) !important;
+  transform: translateX(130%) rotate(18deg) !important;
   opacity: 0 !important;
 }
 .swipe-left-anim {
-  transform: tran(--primary-dark)X(-130%) rotate(-18deg) !important;
+  transform: translateX(-130%) rotate(-18deg) !important;
   opacity: 0 !important;
 }
 .badge-stamp {

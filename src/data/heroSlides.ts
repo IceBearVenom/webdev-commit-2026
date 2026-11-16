@@ -8,7 +8,7 @@ export const HERO_SLIDES: HeroSlide[] = [
     titleLines: ['Nasi Telur', 'Anak Kos'],
     metaBefore: 'Biaya masak ',
     metaAfter: ' vs beli di luar Rp 15.000. Atur jadwal makan hingga 7 hari otomatis sesuai isi dompet.',
-    image: 'https://www.dapurkobe.co.id/wp-content/uploads/nasi-telur-sentosa.jpg',
+    image: 'https://cdn.yummy.co.id/content-images/images/20230215/j0pt7IMEg0ZFwIPVb4OXvuI2KcwZFYTs-31363736343431353032d41d8cd98f00b204e9800998ecf8427e.jpg?x-oss-process=image/resize,w_388,h_388,m_fixed,x-oss-process=image/format,webp',
     recipeId: 'rec-1',
   },
   {

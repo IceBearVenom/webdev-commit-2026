@@ -3,9 +3,9 @@ import type { Toast, ToastType } from '../../types';
 
 const COLORS: Record<ToastType, string> = {
   success: 'bg-(--primary) text-white border-(--primary)',
-  warning: 'bg-amber-500 text-(--primary-dark)-950 border-amber-400',
+  warning: 'bg-(--secondary) text-black border-(--secondary)',
   error: 'bg-rose-600 text-white border-rose-500',
-  info: 'bg-(--primary-dark)-800 text-white border-(--primary-dark)-700',
+  info: 'bg-(--primary-dark) text-(--primary-light) border-(--primary-dark)',
 };
 
 const ICONS: Record<ToastType, string> = {
