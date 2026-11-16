@@ -1,4 +1,3 @@
-# Dapur Kos
 
 Deskripsi singkat mengenai tujuan website ini dibuat dan masalah apa yang diselesaikannya.
 
