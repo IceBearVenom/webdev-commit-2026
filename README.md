@@ -33,6 +33,7 @@ Deskripsi singkat mengenai tujuan website ini dibuat dan masalah apa yang disele
 
 ## Teknologi yang Digunakan
 Dalam pengembangan produk website ini, kami mengandalkan HTML5 dan CSS3 untuk struktur serta perancangan antarmuka, serta JavaScript (ES6+) sebagai fondasi utama logika aplikasi. Selain itu kami menggunakan framework React.js sebagai pustaka utama untuk membangun komponen antarmuka yang dinamis dan interaktif, serta didukung oleh Tailwind CSS untuk penataan gaya yang efisien dan responsif di berbagai ukuran layar. Lalu untuk memastikan website aplikasi dapat diakses secara publik layanan hosting yang dipilih adalah vercel untuk deployment antarmuka berbasis serverless.
+
 ---
 
 ## Petunjuk Instalasi & Menjalankan Proyek (Bila tidak di deploy)
@@ -42,3 +43,6 @@ Pastikan perangkat Anda sudah terinstal **Git** dan **Node.js** (atau runtime la
 1. **Clone repositori ini:**
    ```bash
    git clone [https://github.com/username/nama-repositori.git](https://github.com/username/nama-repositori.git)
+2. **Install package**
+   ```bash
+   npm install
