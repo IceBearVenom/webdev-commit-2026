@@ -12,7 +12,7 @@ Deskripsi singkat mengenai tujuan website ini dibuat dan masalah apa yang disele
 | :--- | :--- |
 | Azki Azziyad | 26/5279227/PA/24271 |
 | Ramadhan Putra W | 26/578311/PA/24223 |
-| Ramadhan Putra W | 26/583263/PA/24478) |
+| Tristan Sbastian | 26/583263/PA/24478) |
 | Muhammad Hadorihandi | 26/586665/PA/24701 |
 
 ---
@@ -36,3 +36,6 @@ Pastikan perangkat Anda sudah terinstal **Git** dan **Node.js** (atau runtime la
 1. **Clone repositori ini:**
    ```bash
    git clone [https://github.com/username/nama-repositori.git](https://github.com/username/nama-repositori.git)
+2. **Install package**
+   ```bash
+   npm install
